@@ -10,16 +10,16 @@ function writePassword() {
 
 }
 
-// Generate all characters for each character type
+
 const LOWERCASE = "abcdefghijklmnopqrstuvwxyz".split("");
 const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const NUMERIC = "0123456789".split("");
 const SPECIAL = "!@#$%^&*()-_+=".split("");
 
 function generatePassword() {
-    // Get minimum password length
+
     var minLength = Number.NEGATIVE_INFINITY;
-    // `isNaN` is to prevent non-number from being provided
+
     while (isNaN(minLength) || minLength < 8) {
         minLength = Number(prompt("Select minimum password length (cannot be less than 8)", 8));
     }
@@ -102,16 +102,14 @@ function generatePassword() {
     return newPassword;
 }
 
-// Checks if all character types were used in password
+
 function meetsCriteria(password, charTypes) {
-    // Always return false for empty strings
+
     if (password.length === 0) return false;
 
-    // Check all character types to see if the password meets
-    // the criteria using the `every` method.
+  
     return charTypes.every((type) => {
-        // Check the characters of the password to see if the
-        // current character type exists within using the `some` method.
+
         switch (type) {
             case 1:
                 return password.split("").some(
